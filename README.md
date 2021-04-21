@@ -1,0 +1,1 @@
+# changelog-maven-plugin
