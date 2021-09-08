@@ -155,16 +155,14 @@ public class ChangeLog extends AbstractMojo {
             List<ChangeLogSet> logs = generateChangeSetsFromSCM();
             File outputXML = new File(outFile + "/changelog.md");
             List<String> results = new ArrayList<>();
-            logs.forEach((ChangeLogSet log)->{
-
-
+            for(ChangeLogSet log:logs){
                 List<ChangeSet> changeSetsList =log.getChangeSets();
-                changeSetsList.forEach((ChangeSet set)->{
+                for(ChangeSet set:changeSetsList){
                     String commentString =set.getComment();
                     results.add(commentString.replace("\n", "")+"["+set.getAuthor()+"]");
+                }
+            }
 
-                });
-            });
             String resultString = ModerOption.filterCommitHistory(version, results);
             Writer writer = WriterFactory.newWriter( new BufferedOutputStream( new FileOutputStream( outputXML ) ),"utf-8" );
             writer.write(resultString);
