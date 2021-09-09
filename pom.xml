@@ -13,7 +13,7 @@
     <url>https://github.com/lwq497539389/changelog-maven-plugin</url>
 
     <properties>
-        <mavenVersion>2.2.1</mavenVersion>
+        <mavenVersion>3.8.2</mavenVersion>
         <mavenPluginVersion>3.2</mavenPluginVersion>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven-scm.version>1.11.3</maven-scm.version>
@@ -26,7 +26,13 @@
         <dependency>
             <groupId>org.apache.maven</groupId>
             <artifactId>maven-project</artifactId>
-            <version>${mavenVersion}</version>
+            <version>2.2.1</version>
+            <exclusions>
+                <exclusion>
+                    <artifactId>plexus-utils</artifactId>
+                    <groupId>org.codehaus.plexus</groupId>
+                </exclusion>
+            </exclusions>
         </dependency>
         <dependency>
             <groupId>org.apache.maven</groupId>
@@ -144,7 +150,7 @@
             <version>${maven-scm.version}</version>
         </dependency>
 
-        <!-- shared -->
+        <!-- shared
         <dependency>
             <groupId>org.apache.maven.reporting</groupId>
             <artifactId>maven-reporting-api</artifactId>
@@ -154,9 +160,9 @@
             <groupId>org.apache.maven.reporting</groupId>
             <artifactId>maven-reporting-impl</artifactId>
             <version>3.0.0</version>
-        </dependency>
+        </dependency>-->
 
-        <!-- Plexus -->
+        <!-- Plexus
         <dependency>
             <groupId>org.codehaus.plexus</groupId>
             <artifactId>plexus-utils</artifactId>
@@ -175,6 +181,12 @@
             <artifactId>plexus-container-default</artifactId>
             <version>2.1.0</version>
             <scope>test</scope>
+        </dependency>
+         -->
+        <dependency>
+            <groupId>org.codehaus.plexus</groupId>
+            <artifactId>plexus-utils</artifactId>
+            <version>2.1</version>
         </dependency>
     </dependencies>
     <distributionManagement>
